@@ -26,12 +26,12 @@ const Pinjaman = () => {
   });
 
   const fetchPinjaman = async () => {
-    const response = await axios.get("http://localhost:5000/api/expense");
+    const response = await axios.get("https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/expense");
     setPinjaman(response.data);
   };
 
   const fetchAnggota = async () => {
-    const response = await axios.get(`http://localhost:5000/api/member`);
+    const response = await axios.get(`https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/member`);
     setMember(response.data);
   };
 
@@ -63,18 +63,18 @@ const Pinjaman = () => {
       return;
     }
     try {
-      await axios.post("http://localhost:5000/api/expense", form);
+      await axios.post("https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/expense", form);
       fetchPinjaman();
 
       const getLatestLoanId = await axios.get(
-        `http://localhost:5000/api/expense`
+        `https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/expense`
       );
       const getExpenseId =
         getLatestLoanId.data[getLatestLoanId.data.length - 1]._id;
       console.log(getExpenseId);
 
       await axios.put(
-        `http://localhost:5000/api/member/${form.memberLoan.member}/loans`,
+        `https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/member/${form.memberLoan.member}/loans`,
         { loans: `${getExpenseId}` }
       );
       showToast("success", "Data berhasil ditambahkan");
@@ -85,7 +85,7 @@ const Pinjaman = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/expense/${id}`);
+      await axios.delete(`https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/expense/${id}`);
       fetchPinjaman();
       fetchAnggota();
       showToast("success", "Data berhasil dihapus");
@@ -110,7 +110,7 @@ const Pinjaman = () => {
     console.log(formEdit);
     try {
       await axios.put(
-        `http://localhost:5000/api/expense/${formEdit.id}`,
+        `https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/expense/${formEdit.id}`,
         formEdit
       );
       fetchPinjaman();

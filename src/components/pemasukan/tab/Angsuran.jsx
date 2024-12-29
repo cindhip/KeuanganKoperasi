@@ -17,7 +17,7 @@ const Angsuran = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/expense/");
+      const response = await axios.get("https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/expense/");
       setInstallment(response.data);
     } catch (error) {
       console.log(error);
@@ -25,14 +25,14 @@ const Angsuran = () => {
   };
 
   const fetchAnggota = async () => {
-    const response = await axios.get(`http://localhost:5000/api/member`);
+    const response = await axios.get(`https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/member`);
     setMember(response.data);
   };
 
   const fetchMemberLoans = async (memberId) => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/member/${memberId}`
+        `https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/member/${memberId}`
       );
       const loans = response.data.loans;
       setMemberLoans(loans);
@@ -73,7 +73,7 @@ const Angsuran = () => {
 
     try {
       await axios.put(
-        `http://localhost:5000/api/expense/${memberLoans[0]._id}/installment`,
+        `https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/expense/${memberLoans[0]._id}/installment`,
         form
       );
       fetchData();

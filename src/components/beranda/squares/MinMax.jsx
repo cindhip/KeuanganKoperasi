@@ -7,10 +7,10 @@ const MinMax = () => {
 
   const fetchData = async () => {
     try {
-      const fetchIncome = await axios.get("http://localhost:5000/api/income/");
+      const fetchIncome = await axios.get("https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/income/");
       setIncome(fetchIncome.data);
       const fetchExpense = await axios.get(
-        "http://localhost:5000/api/expense/"
+        "https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/expense/"
       );
       setExpense(fetchExpense.data);
     } catch (error) {

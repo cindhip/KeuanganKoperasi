@@ -27,7 +27,7 @@ const Operasional = () => {
   });
 
   const fetchOperational = async () => {
-    const response = await axios.get("http://localhost:5000/api/expense");
+    const response = await axios.get("https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/expense");
     setOperational(response.data);
   };
 
@@ -59,7 +59,7 @@ const Operasional = () => {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/expense", form);
+      await axios.post("https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/expense", form);
       fetchOperational();
       showToast("success", "Data berhasil ditambahkan");
     } catch (error) {
@@ -69,7 +69,7 @@ const Operasional = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/expense/${id}`);
+      await axios.delete(`https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/expense/${id}`);
       fetchOperational();
       showToast("success", "Data berhasil dihapus");
     } catch (error) {
@@ -92,7 +92,7 @@ const Operasional = () => {
   const handleSubmitEdit = async () => {
     try {
       await axios.put(
-        `http://localhost:5000/api/expense/${formEdit.id}`,
+        `https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/expense/${formEdit.id}`,
         formEdit
       );
       fetchOperational();

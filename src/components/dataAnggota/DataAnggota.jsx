@@ -25,7 +25,7 @@ const DataAnggota = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/member/");
+      const response = await axios.get("https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/member/");
       setAllAnggota(response.data);
       setAnggota(response.data);
     } catch (error) {
@@ -68,7 +68,7 @@ const DataAnggota = () => {
       return;
     }
     try {
-      await axios.post("http://localhost:5000/api/member/", form);
+      await axios.post("https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/member/", form);
       fetchData();
       showToast("success", "Data berhasil ditambahkan");
     } catch (error) {
@@ -87,7 +87,7 @@ const DataAnggota = () => {
 
   const handleSubmitEdit = async () => {
     try {
-      await axios.put(`http://localhost:5000/api/member/${formEdit.id}`, formEdit);
+      await axios.put(`https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/member/${formEdit.id}`, formEdit);
       fetchData();
       showToast("success", "Data berhasil diubah");
       document.getElementById("modal_edit_member").close();
@@ -112,7 +112,7 @@ const DataAnggota = () => {
   // Delete
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/member/${id}`);
+      await axios.delete(`https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/member/${id}`);
       fetchData();
       showToast("success", "Data berhasil dihapus");
     } catch (error) {

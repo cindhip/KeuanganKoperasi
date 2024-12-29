@@ -29,12 +29,12 @@ const Simpanan = () => {
   });
 
   const fetchSimpanan = async () => {
-    const response = await axios.get(`http://localhost:5000/api/income`);
+    const response = await axios.get(`https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/income`);
     setSimpanan(response.data);
   };
 
   const fetchAnggota = async () => {
-    const response = await axios.get(`http://localhost:5000/api/member`);
+    const response = await axios.get(`https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/member`);
     setMember(response.data);
   };
 
@@ -79,17 +79,17 @@ const Simpanan = () => {
       return;
     }
     try {
-      await axios.post(`http://localhost:5000/api/income`, form);
+      await axios.post(`https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/income`, form);
       fetchSimpanan();
 
       const getLatestSavingId = await axios.get(
-        `http://localhost:5000/api/income`
+        `https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/income`
       );
       const getSavingId =
         getLatestSavingId.data[getLatestSavingId.data.length - 1]._id;
 
       await axios.put(
-        `http://localhost:5000/api/member/${form.saving.member}/saving`,
+        `https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/member/${form.saving.member}/saving`,
         { savings: `${getSavingId}` }
       );
       showToast("success", "Data berhasil ditambahkan");
@@ -114,7 +114,7 @@ const Simpanan = () => {
     console.log(formEdit);
     try {
       await axios.put(
-        `http://localhost:5000/api/income/${formEdit.id}`,
+        `https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/income/${formEdit.id}`,
         formEdit
       );
       fetchSimpanan();
@@ -146,7 +146,7 @@ const Simpanan = () => {
       .saving.member._id;
     try {
       await axios.delete(
-        `http://localhost:5000/api/member/${getMemberId}/saving`,
+        `https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/member/${getMemberId}/saving`,
         {
           params: {
             savings: id, // Mengirim id saving melalui query params
@@ -154,7 +154,7 @@ const Simpanan = () => {
         }
       );
 
-      await axios.delete(`http://localhost:5000/api/income/${id}`);
+      await axios.delete(`https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/income/${id}`);
       fetchSimpanan();
       showToast("success", "Data berhasil dihapus");
     } catch (error) {

@@ -8,7 +8,7 @@ const Pinjaman = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/member/");
+      const response = await axios.get("https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/member/");
       setAllAnggota(response.data);
       setAnggota(response.data);
     } catch (error) {

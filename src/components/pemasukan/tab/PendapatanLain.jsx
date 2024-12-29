@@ -26,7 +26,7 @@ const PendapatanLain = () => {
   });
 
   const fetchPendapatan = async () => {
-    const response = await axios.get("http://localhost:5000/api/income");
+    const response = await axios.get("https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/income");
     setPendapatan(response.data);
   };
 
@@ -64,7 +64,7 @@ const PendapatanLain = () => {
       return;
     }
     try {
-      await axios.post("http://localhost:5000/api/income", form);
+      await axios.post("https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/income", form);
       fetchPendapatan();
       showToast("success", "Data berhasil ditambahkan");
     } catch (error) {
@@ -87,7 +87,7 @@ const PendapatanLain = () => {
   const handleSubmitEdit = async () => {
     try {
       await axios.put(
-        `http://localhost:5000/api/income/${formEdit.id}`,
+        `https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/income/${formEdit.id}`,
         formEdit
       );
       fetchPendapatan();
@@ -117,7 +117,7 @@ const PendapatanLain = () => {
   // Delete
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/income/${id}`);
+      await axios.delete(`https://prior-krystal-woxyin-c0aefc03.koyeb.app/api/income/${id}`);
       fetchPendapatan();
       showToast("success", "Data berhasil dihapus");
     } catch (error) {
